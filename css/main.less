@@ -1,23 +1,24 @@
+// 공통
 @color-main1: #4B506B;
 @color-main2: lighten(@color-main1, 13%);
 @color-hover: darken(@color-main1, 10%);
-@color-white: #fff;
+@color-white: #FFFFFF;
 
 .show { display: block; }
 .hide { display: none; }
 
-.boxSize(@w, @h) {
-  width: unit(@w, px);
-  height: unit(@h, px);
+.boxSize(@width, @height) {
+  width: @width;
+  height: @height;
 }
 
-html, body {
-  background: @color-main1;
-}
+html, body { background: @color-main1; }
 
+
+// 배경 그림자
 .side_shadow {
-  width: 100%;
-  height: 100%;
+  .boxSize(100%, 100%);
+  background: black;
   opacity: 0.7;
   position: fixed;
   top: 0;
@@ -25,20 +26,20 @@ html, body {
   .hide;
 }
 
+
+// 사이드 메뉴 버튼
 .side_menu_btn {
-  .boxSize(40, 37);
   position: fixed;
   top: 25px;
   left: 25px;
   padding: 10px;
   background: @color-main2;
   cursor: pointer;
-  box-sizing: border-box;
 
   span {
+    .boxSize(20px, 2px);
     display: block;
-    .boxSize(20, 2);
-    background: white;
+    background: @color-white;
     margin-bottom: 5px;
 
     &:last-child {
@@ -47,10 +48,11 @@ html, body {
   }
 }
 
+
+// 사이드 메뉴
 .side_menu {
   @width: 500px;
-  width: @width;
-  height: 100%;
+  .boxSize(@width, 100%);
   background: @color-main1;
   position: fixed;
   top: 0;
@@ -66,10 +68,10 @@ html, body {
     figure {
 
       img {
-        .boxSize(150, 150);
+        .boxSize(150px, 150px);
         margin: 0 auto;
-        border-radius: 50%;
         display: block;
+        border-radius: 50%;
       }
 
       figcaption {
@@ -79,7 +81,6 @@ html, body {
         font-size: 20px;
         color: @color-white;
       }
-
     }
 
     .close_btn {
@@ -109,7 +110,7 @@ html, body {
         &.arrow {
           background: url("http://herop.me/images/arrow.png") no-repeat 96% center;
 
-          &.hover {
+          &:hover {
             background: @color-hover url("http://herop.me/images/arrow.png") no-repeat 96% center;
           }
         }
@@ -128,6 +129,5 @@ html, body {
         }
       }
     }
-
   }
 }
